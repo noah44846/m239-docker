@@ -1,10 +1,12 @@
-FROM ubuntu:19.10
+FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y sudo net-tools iputils-ping
-RUN useradd -d /home/noah/ -m -p noah -s /bin/bash noah
-RUN usermod -aG sudo noah
-RUN echo "noah:noah" | chpasswd
+RUN apt-get update && apt-get full-upgrade -y && apt-get autoremove -y && apt-get install -y sudo net-tools iputils-ping systemd
+RUN useradd -d /home/username/ -m -p password -s /bin/bash username
+RUN usermod -aG sudo usernam
+RUN echo "username:password" | chpasswd
 
-WORKDIR /home/noah
+WORKDIR /home/username
 
-USER noah
+USER username
+
+CMD ["/sbin/init"]
