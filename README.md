@@ -11,6 +11,12 @@ sudo apt install docker.io
 ```bash
 git clone https://github.com/noah44846/m239-docker
 cd m239-docker
+```
+
+Modify the `Dockerfile` and `docker-compose.yml` files with the right IP and usernames
+Execute composer:
+
+```bash
 docker-compose up -d
 ```
 
