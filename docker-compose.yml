@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+    web:
+        build: .
+        hostname: srvweb
+        container_name: srvweb
+        tty: true
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.10
+    db:
+        build: .
+        hostname: srvdb
+        container_name: srvdb
+        tty: true
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.20
+    dns:
+        build: .
+        hostname: srvdns
+        container_name: srvdns
+        tty: true
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.30
+networks: 
+    internal: 
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.49.0/24
+        internal: true
+    external:
