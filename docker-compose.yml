@@ -8,7 +8,7 @@ services:
         networks: 
             external:
             internal:
-                ipv4_address: 192.168.49.10
+                ipv4_address: 192.168.xx.xx
     db:
         build: .
         hostname: srvdb
@@ -17,7 +17,7 @@ services:
         networks: 
             external:
             internal:
-                ipv4_address: 192.168.49.20
+                ipv4_address: 192.168.xx.xx
     dns:
         build: .
         hostname: srvdns
@@ -26,13 +26,13 @@ services:
         networks: 
             external:
             internal:
-                ipv4_address: 192.168.49.30
+                ipv4_address: 192.168.xx.xx
 networks: 
     internal: 
         driver: bridge
         ipam:
             driver: default
             config:
-                - subnet: 192.168.49.0/24
+                - subnet: 192.168.xx.0/24
         internal: true
     external:
