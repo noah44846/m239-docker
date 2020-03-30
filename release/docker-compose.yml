@@ -1,7 +1,7 @@
 version: "3.7"
 services:
     web:
-        image: noah44846/m239-web
+        image: noah44846/m239-web:1.0
         restart: always
         hostname: srvweb
         container_name: srvweb
@@ -15,7 +15,7 @@ services:
             internal:
                 ipv4_address: 192.168.49.10
     db:
-        image: noah44846/m239-db
+        image: noah44846/m239-db:1.0
         restart: always
         hostname: srvdb
         container_name: srvdb
@@ -29,7 +29,7 @@ services:
             internal:
                 ipv4_address: 192.168.49.20
     dns:
-        image: noah44846/m239-dns
+        image: noah44846/m239-dns:1.0
         restart: always
         hostname: srvdns
         container_name: srvdns
