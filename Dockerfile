@@ -5,6 +5,6 @@ RUN useradd -d /home/username/ -m -p password -s /bin/bash username
 RUN usermod -aG sudo username
 RUN echo "username:password" | chpasswd
 
-WORKDIR /home/noah
+WORKDIR /home/username
 
 USER username
