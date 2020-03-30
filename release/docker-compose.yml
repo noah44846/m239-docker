@@ -1,0 +1,70 @@
+version: "3.7"
+services:
+    web:
+        image: noah44846/m239-web
+        restart: always
+        hostname: srvweb
+        container_name: srvweb
+        tty: true
+        dns:
+            - 192.168.49.30
+            - 1.1.1.1
+            - 1.1.0.0
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.10
+    db:
+        image: noah44846/m239-db
+        restart: always
+        hostname: srvdb
+        container_name: srvdb
+        tty: true
+        dns:
+            - 192.168.49.30
+            - 1.1.1.1
+            - 1.1.0.0
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.20
+    dns:
+        image: noah44846/m239-dns
+        restart: always
+        hostname: srvdns
+        container_name: srvdns
+        tty: true
+        dns:
+            - 192.168.49.30
+            - 1.1.1.1
+            - 1.1.0.0
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.30
+    client:
+        image: dorowu/ubuntu-desktop-lxde-vnc:bionic
+        restart: always
+        hostname: client
+        container_name: client
+        tty: true
+        dns:
+            - 192.168.49.30
+            - 1.1.1.1
+            - 1.1.0.0
+        networks: 
+            external:
+            internal:
+                ipv4_address: 192.168.49.30
+        ports: 
+            - "6080:80"
+            - "5900:5900"
+networks: 
+    internal: 
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.49.0/24
+        internal: true
+    external:
