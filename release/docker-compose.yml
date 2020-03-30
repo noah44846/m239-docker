@@ -1,7 +1,7 @@
 version: "3.7"
 services:
     web:
-        image: noah44846/m239-web:1.0
+        image: noah44846/m239-web:1.1
         restart: always
         hostname: srvweb
         container_name: srvweb
